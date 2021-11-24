@@ -25,8 +25,6 @@ public void OnPluginStart()
 	cv_sDiscordRoleId = CreateConVar("sm_du_viprole_id", "909788852959473664", "Role ID Discord.");
 	cv_sDiscordRoleId.GetString(sRoleId, sizeof(sRoleId));
 
-	LoadTranslations("du_viprole.phrases");
-
 	AutoExecConfig();
 }
 
@@ -44,22 +42,6 @@ public void DU_OnClientLoaded(int client)
 	}
 	
 	DU_AddRole(client, sRoleId);
-
-	CreateTimer(15.0, PrintToVip, GetClientSerial(client)); // You could also use GetClientUserId(client)
-}
-
-public Action PrintToVip(Handle timer, int serial)
-{
-    int client = GetClientFromSerial(serial); // Validate the client serial
- 
-    if (client == 0) // The serial is no longer valid, the player must have disconnected
-    {
-        return Plugin_Stop;
-    }
- 
-    CPrintToChat(client, "%t", "Added vip role");
- 
-    return Plugin_Continue;
 }
 
 stock bool CheckAdminFlag(int client, const char[] flags)
