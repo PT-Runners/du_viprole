@@ -1,0 +1,7 @@
+"Phrases"
+{
+    "Added vip role"
+    {
+        "en"		"> {green}Adicionado o cargo de VIP no Discord!"
+    }
+}
