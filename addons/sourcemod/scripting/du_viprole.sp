@@ -28,31 +28,19 @@ public void OnPluginStart()
 	AutoExecConfig();
 }
 
-public void DU_OnAccountRevoked(int client, const char[] userid)
-{
-	if(DU_CheckRole(client, sRoleId))
-	{
-		DU_DeleteRole(client, sRoleId);
-	}
-}
-
 public void DU_OnClientLoaded(int client)
 {
+	if(!CheckAdminFlag(client, sFlag))
+	{
+		DU_DeleteRole(client, sRoleId);
+		return;
+	}
+
 	if(!DU_IsMember(client))
 	{
 		return;
 	}
 	
-	if(!CheckAdminFlag(client, sFlag))
-	{
-		if(DU_CheckRole(client, sRoleId))
-		{
-			DU_DeleteRole(client, sRoleId);
-		}
-
-		return;
-	}
-
 	DU_AddRole(client, sRoleId);
 }
 
