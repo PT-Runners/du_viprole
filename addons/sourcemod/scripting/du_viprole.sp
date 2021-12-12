@@ -55,14 +55,14 @@ public Action Timer_VipRole(Handle hTimer)
 			continue;
 		}
 
-		if(!CheckAdminFlag(i, sFlag))
+		if(!DU_IsMember(i))
 		{
-			DU_DeleteRole(i, sRoleId);
 			continue;
 		}
 
-		if(!DU_IsMember(i))
+		if(!CheckAdminFlag(i, sFlag))
 		{
+			DU_DeleteRole(i, sRoleId);
 			continue;
 		}
 		
