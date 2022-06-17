@@ -55,6 +55,11 @@ public Action Timer_VipRole(Handle hTimer)
 			continue;
 		}
 
+		if(!DU_IsChecked(i))
+		{
+			continue;
+		}
+
 		if(!DU_IsMember(i))
 		{
 			continue;
