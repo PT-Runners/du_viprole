@@ -73,6 +73,8 @@ public Action Timer_VipRole(Handle hTimer)
 		
 		DU_AddRole(i, sRoleId);
 	}
+
+	return Plugin_Stop;
 }
 
 public void tVip_OnClientLoadedPost(int client)
